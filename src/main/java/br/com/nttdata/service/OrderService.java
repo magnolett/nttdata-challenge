@@ -41,7 +41,7 @@ public class OrderService {
         redisTemplate.opsForValue().set(orderDTO.getOrderId(), "processed", Duration.ofDays(1));
     }
 
-    private boolean isDuplicate(String orderId) {
+    boolean isDuplicate(String orderId) {
         if (redisTemplate == null || orderId == null) {
             return false;
         }
